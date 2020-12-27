@@ -3,14 +3,16 @@ from flask import Flask, jsonify
 from .file2 import ClassB
 app = Flask(__name__)
 
-cb = ClassB()
-hello = cb.methodB()
+
 # print("hey=",hello)
 # print(type(hello))
-hell = {'Greeting':hello}
+
 
 @app.route('/')
 def hello():
+	cb = ClassB()
+	hello = cb.methodB()
+	hell = {'Greeting':hello}
 	return jsonify(hell)
 
 
